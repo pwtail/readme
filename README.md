@@ -19,7 +19,7 @@ this trick.
 
 **Intended for web applications**
 
-The issue is that the approach requires an ecosystem of libraries written or adapted specifically for it.
+The issue is, the approach requires an ecosystem of libraries written or adapted specifically for it.
 So, the web applications fit well, since they have a predictable and limited scope.
 **django** will definitely be supported.
 
