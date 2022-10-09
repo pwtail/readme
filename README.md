@@ -40,8 +40,8 @@ if it is a server-sent message. However, we can imagine that we have a separate 
 `ws.send` delegates to it. So, a perfectly valid django view.
 
 Now, few people know that we can use the same, or very similar, code to run it asynchronously - without a single
-await statement (and yes, `ws.send` could be actually a server-sent message then). Django can be
-using an async database backend, the http client - an async implementation, and the ws server is always
+await statement (and yes, `ws.send` could actually be a server-sent message in that case). For that, django should be
+using an async database backend, the http client - to have the async implementation, and the ws server is always
 asynchronous. But the public API can be the same for sync and async code. And with balrog, it is the same!
 
 **How is it possible?**
