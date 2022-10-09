@@ -46,10 +46,15 @@ Here you can see a regular synchronous django view. Except that `ws.send` cannot
 if it is a server-sent message. However, we can imagine we have a separate service for sending messages, and
 `ws.send` delegates to it. So, a perfectly valid django view.
 
-Now, few people know that we can use the same, or very similar, code to run it asynchronously - without a single
-await statement (and yes, `ws.send` could actually be a server-sent message in that case). For that, django should be
-using an async database backend, the http client - to have the async implementation, and the ws server is always
-asynchronous. But the public **API can be the same** for sync and async versions. And with balrog, it is the same!
+Now, we'll try to apply the above-stated approach for it. No real code at this stage yet, but we can imagine
+we have all of the following provided:
+
+- async database backend for django
+- async implementation of the http client
+- websocket server - that is always asynchronous
+
+Now, what I'm trying to say is that all the async implementations above can be hidden under the hood, the API
+most likely being shared with their sync counterparts. So the code snippet above likely won't change at all.
 
 **The name**
 
