@@ -37,7 +37,7 @@ def food_delivery(request):
 
 What we see above is a regular synchronous django view. Except the last line: `ws.send` cannot really be a synchronous call
 if it is a server-sent message. However, we can imagine that we have a separate service for sending messages, and that
-`ws.send` uses either a ws connection to it, or any other way of communication. So, a perfectly valid django view.
+`ws.send` delegates to it. So, a perfectly valid django view.
 
 Now, few people know that we can use the same, or very similar, code to run it asynchronously - without a single
 await statement (and yes, `ws.send` could be actually a server-sent message then). Django can be
