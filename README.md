@@ -51,7 +51,7 @@ we have all of the following provided:
 
 - async database backend for django
 - async implementation of the http client
-- websocket server - that is always asynchronous
+- websocket server - this thing is always asynchronous
 
 Now, what I'm trying to say is, all of the above can be hidden under the hood, as an implementation detail, the public API
 likely being shared with their sync counterparts. The code snippet above likely won't change at all.
