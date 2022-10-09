@@ -20,8 +20,8 @@ this trick.
 **Intended for web applications**
 
 Balrog is mainly oriented at web applications. **django** will definitely be supported.
-The issue is that this approach requires an ecosystem of libraries written or adapted specifically for it.
-So, web applications fit well, since they have a predictable and limited scope.
+The issue is that the approach requires an ecosystem of libraries written or adapted specifically for it.
+So, the web applications fit well, since they have a predictable and limited scope.
 
 **An example**
 
