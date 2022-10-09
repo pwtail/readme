@@ -18,7 +18,7 @@ So, web applications fit well, since they have a predictable and a quite limited
 
 ```python
 import requests
-from delivery.models import Order, prepare_order
+from delivery.models import Order
 
 def food_delivery(request):
     order: Order = prepare_order(request)
