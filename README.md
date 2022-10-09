@@ -15,7 +15,7 @@ Balrog uses the **greenlet** hack, which is best known from its use in sqlalchem
 async/await keywords despite them having an async implementation.
 
 Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
-this trick.
+the trick.
 
 **Intended for web applications**
 
