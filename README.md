@@ -54,7 +54,7 @@ Here I've put a small package [greenbrew](https://github.com/balrogproject/green
 **The plan of action**
 
 The first milestone is enabling the use of django orm. An async database backend is required for this.
-The first database will be PostgreSql, the psycopg3 driver, because it is the simplest to support: it's async API mirrors the sync one.
+The first database will be PostgreSql, psycopg3 driver, because it is the simplest to support: it's async API mirrors the sync one.
 
 The next set of activities could be:
 
