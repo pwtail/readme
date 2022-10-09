@@ -34,13 +34,12 @@ def food_delivery(request):
     order.save()
     resp = requests.post('http://kitchen-place.org/orders/', data=order.as_dict())
     match resp.status_code, resp.json():
-        case 201, {"mins": mins}:
-            pass
+        case 201, {"mins": mins} as data:
+            ws = get_ws_connection(request)
+            ws.send(f'Order #{order.id} will be delivered in {mins} minutes.')
+            return JsonResponse(data)
         case _:
             kitchen_error(resp)
-    ws = get_ws_connection(request)
-    ws.send(f'Order #{order.id} will be delivered in {mins} minutes.')
-    return HttpResponse()
 ```
 
 What we see above is a regular synchronous django view. Except the last line: `ws.send` cannot really be a synchronous call,
