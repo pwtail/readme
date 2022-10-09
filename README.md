@@ -17,7 +17,7 @@ async/await keywords despite them having an async implementation.
 Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
 this trick.
 
-**For web applications mostly**
+**Intended for web applications**
 
 Balrog is mainly oriented at the web applications. **django** will definitely be supported.
 The issue is that this approach requires an ecosystem of libraries written or adapted specifically for it.
