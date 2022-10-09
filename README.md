@@ -32,7 +32,7 @@ from delivery.models import Order
 def food_delivery(request):
     order: Order = prepare_order(request)
     order.save()
-    resp = requests.post('http://kitchen-place.org/orders/', data=order.as_dict())
+    resp = requests.post('https://kitchen-place.org/orders/', data=order.as_dict())
     match resp.status_code, resp.json():
         case 201, {"mins": mins} as when:
             ws = get_ws_connection(request)
