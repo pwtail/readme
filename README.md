@@ -34,7 +34,7 @@ def food_delivery(request):
     ws.send(f'Order #{order.id} will be delivered in {mins} minutes.')
 ```
 
-What we see above is a regular (synchronous) django view. Except the last line: `ws.send` cannot be a synchronous call
+What we see above is a regular synchronous django view. Except the last line: `ws.send` cannot be a synchronous call
 if it is a server-sent message. However, we can imagine that we have a separate service for sending messages, and
 `ws.send` uses either a ws connection to it, or any other way of communication. So, a perfectly valid django view.
 
