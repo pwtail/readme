@@ -25,7 +25,6 @@ def food_delivery(request):
     order: Order = prepare_order(request)
     order.save()
     resp = requests.post('http://kitchen-place.org/orders/', data=order.as_dict())
-    assert resp.status_code == 201
     match resp.status_code, resp.json():
         case 201, {"mins": mins}:
             pass
