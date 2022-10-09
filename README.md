@@ -48,7 +48,7 @@ asynchronous. But the public API can be the same for sync and async code. And wi
 Balrog uses the greenlet hack, best known from it's use in sqlalchemy. It removes the need for your functions to have the
 `async` and `await` keywords despite having an async implementation.
 
-Here I've put a small [package](https://github.com/balrogproject/greenbrew) for demonstration.
+Here I've put a small package [greenbrew](https://github.com/balrogproject/greenbrew) for demonstration.
 
 **The plan of action**
 
