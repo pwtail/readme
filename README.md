@@ -4,10 +4,9 @@
 
 **No async/await**
 
-The balrog project takes unconventional approach to writing asynchronous code: namely, async/await keywords are discouraged.
-You write the code the same way as if you were using synchronous I/O.
-Under the hood, your code still runs asynchronously - if you choose so.
-Balrog aims to support both sync and async I/O equally well.
+The balrog project takes an unconventional approach: async/await keywords are discouraged!
+You write the async code the same way as if it were sync code.
+Under the hood, it will still run asynchronously, if you choose so, balrog aims to support both sync and async I/O equally well.
 
 **For web applications mostly**
 
