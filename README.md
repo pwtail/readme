@@ -12,7 +12,7 @@ Balrog aims to support both sync and async I/O equally well.
 **For web applications mostly**
 
 The approach is mainly oriented at the web applications. **django** will be definitely supported.
-The thing is that balrog needs an ecosystem of libraries, written or adapted specifically for it.
+The thing is that balrog needs an ecosystem of libraries written or adapted specifically for it.
 So, web applications fit well, since they have a predictable and a quite limited set of needs.
 
 **An example**
