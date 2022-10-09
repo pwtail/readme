@@ -43,7 +43,7 @@ def food_delivery(request):
     return HttpResponse()
 ```
 
-What we see above is a regular synchronous django view. Except the last line: `ws.send` cannot really be a synchronous call
+What we see above is a regular synchronous django view. Except the last line: `ws.send` cannot really be a synchronous call,
 if it is a server-sent message. However, we can imagine that we have a separate service for sending messages, and that
 `ws.send` delegates to it. So, a perfectly valid django view.
 
