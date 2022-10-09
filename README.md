@@ -53,7 +53,7 @@ we have all of the following provided:
 - async implementation of the http client
 - websocket server - that is always asynchronous
 
-Now, what I'm trying to say is, all of the above can be hidden under the hood, the API
+Now, what I'm trying to say is, all of the above can be hidden under the hood, as an implementation detail, the public API
 most likely being shared with their sync counterparts. The code snippet above likely won't change at all.
 
 **The name**
