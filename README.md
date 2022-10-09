@@ -42,7 +42,7 @@ def food_delivery(request):
             kitchen_error(resp)
 ```
 
-What we see above is a regular synchronous django view. Except that `ws.send` cannot really be a synchronous call,
+Here you can see a regular synchronous django view. Except that `ws.send` cannot really be a synchronous call,
 if it is a server-sent message. However, we can imagine we have a separate service for sending messages, and
 `ws.send` delegates to it. So, a perfectly valid django view.
 
