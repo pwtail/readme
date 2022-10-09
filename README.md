@@ -34,10 +34,10 @@ def food_delivery(request):
     order.save()
     resp = requests.post('http://kitchen-place.org/orders/', data=order.as_dict())
     match resp.status_code, resp.json():
-        case 201, {"mins": mins} as data:
+        case 201, {"mins": mins} as when:
             ws = get_ws_connection(request)
             ws.send(f'Order #{order.id} will be delivered in {mins} minutes.')
-            return JsonResponse(data)
+            return JsonResponse(when)
         case _:
             kitchen_error(resp)
 ```
