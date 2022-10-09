@@ -12,7 +12,7 @@ Under the hood, it will still run asynchronously, if you choose so. Balrog aims 
 
 The approach is mainly oriented at the web applications. Django will be definitely supported.
 The thing is that balrog needs an ecosystem of libraries, written or adapted specifically for it.
-So, web applications fit well, since they have a predictable and quite limited set of needs.
+So, web applications fit well, since they have a predictable and a quite limited set of needs.
 
 **An example**
 
