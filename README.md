@@ -53,4 +53,4 @@ Here I've put up a small package [greenbrew](https://github.com/balrogproject/gr
 
 **The name**
 
-The mos wicked demon of ancient times is greenlet of course, but django is powerful too.
+The most wicked demon of ancient times is greenlet of course, but django is powerful too.
