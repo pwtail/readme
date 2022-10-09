@@ -1,6 +1,6 @@
 # RFC: balrog project
 
-*Slogan: ancient demons fighting by your side.*
+*Ancient demons fighting by your side.*
 
 **No async/await**
 
