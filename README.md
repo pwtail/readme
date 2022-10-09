@@ -9,6 +9,14 @@ You write the async code in the same way as you write the sync code.
 Under the hood, it will still run asynchronously, if you choose so.
 Balrog aims to support both sync and async I/O equally well.
 
+**How is it possible?**
+
+Balrog uses the **greenlet** hack, which is best known from it's use in sqlalchemy. It removes the need for your functions to have the
+async/await keywords despite having an async implementation.
+
+Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
+this trick.
+
 **For web applications mostly**
 
 Balrog is mainly oriented at the web applications. **django** will be definitely supported.
@@ -43,14 +51,6 @@ Now, few people know that we can use the same, or very similar, code to run it a
 await statement (and yes, `ws.send` could actually be a server-sent message in that case). For that, django should be
 using an async database backend, the http client - to have the async implementation, and the ws server is always
 asynchronous. But the public **API can be the same** for sync and async versions. And with balrog, it is the same!
-
-**How is it possible?**
-
-Balrog uses the **greenlet** hack, which is best known from it's use in sqlalchemy. It removes the need for your functions to have the
-async/await keywords despite having an async implementation.
-
-Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
-this trick.
 
 **The name**
 
