@@ -77,7 +77,7 @@ To my surprise, the greenlet approach works in the REPL **out of the box**. Even
 `nest_asyncio` is not required.
 
 Some integration with IPython will still be needed, for the case when it's just code you type in the REPL
-(which has to be wrapped in a greenlet).
+(which has to be wrapped in a greenlet). The case that works out of the box, that I was talking about, is debugging existing code.
 
 **The plans**
 
