@@ -60,7 +60,7 @@ likely being shared with their sync counterparts. The code snippet above likely 
 
 The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with @zzzeek about the use of
 greenlets in sqlalchemy. I actually was defending the idea that greenlets are harmful, and can only be used
-as a temporary solution on the way to porting from sync to async API. Then I changed my mind.
+as a temporary solution on the way of porting from sync to async API. Then I changed my mind.
 
 **The name**
 
