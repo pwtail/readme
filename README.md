@@ -59,3 +59,15 @@ likely being shared with their sync counterparts. The code snippet above likely 
 **The name**
 
 The most wicked demon of ancient times is greenlet of course, but django is powerful too.
+
+**The REPL**
+
+Some people know that some advanced Python REPL's like IPython, allow expressions like `await smth`. However, nested
+event loops are not allowed, so you can not call async functions when debugging an async service.
+To work around that problem people usually use `nest_asyncio` (which patches asyncio).
+
+To my surprise, the greenlet approach works in the REPL out of the box. Even in the regular Python REPL, pdb!
+`nest_asyncio` is not required.
+
+Some integration with IPython will still be needed, for the case when it's not debugging an existing service
+(which has already been wrapped in a greenlet), but when it's just code you type in the REPL (which has to be wrapped).
