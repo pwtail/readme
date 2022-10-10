@@ -64,7 +64,7 @@ The most wicked demon of ancient times is greenlet of course, but django is powe
 
 Some people know that some advanced Python REPL's like IPython, allow expressions like `await smth`. However, nested
 event loops are not allowed, so you can not call async functions when debugging an async service.
-To work around that problem people usually use
+To work around the problem people usually use
 [nest_asyncio](https://github.com/erdewit/nest_asyncio), which patches asyncio.
 
 To my surprise, the greenlet approach works in the REPL out of the box. Even in the regular Python REPL, pdb!
