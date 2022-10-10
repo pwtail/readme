@@ -12,7 +12,7 @@ Balrog aims to support both sync and async I/O equally well.
 **How is it possible?**
 
 Balrog uses the **greenlet** hack, which is best known from its use in sqlalchemy. It removes the need for functions to have the
-async/await keywords despite them having an async implementation.
+async/await keywords despite them having an async implementation. Balrog uses that trick all the way down.
 
 Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
 the trick.
