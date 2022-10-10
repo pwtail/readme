@@ -70,5 +70,5 @@ To work around the problem people usually use
 To my surprise, the greenlet approach works in the REPL out of the box. Even in the regular Python REPL, pdb!
 `nest_asyncio` is not required.
 
-Some integration with IPython will still be needed, for the case when it's not debugging an existing service
-(which has already been wrapped in a greenlet), but when it's just code you type in the REPL (which has to be wrapped).
+Some integration with IPython will still be needed, for the case when it's just code you type in the REPL
+(which has to be wrapped in a greenlet).
