@@ -72,3 +72,9 @@ To my surprise, the greenlet approach works in the REPL out of the box. Even in 
 
 Some integration with IPython will still be needed, for the case when it's just code you type in the REPL
 (which has to be wrapped in a greenlet).
+
+**Plans**
+
+The blocker now is the absence of the async database backends in django. But that is not much work.
+The first database driver supported will be [psycopg](https://github.com/psycopg/psycopg).
+The sync backend for that driver is [almost](https://github.com/django/django/pull/15687) merged.
