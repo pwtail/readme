@@ -9,6 +9,10 @@ You write the async code in the same way you would write the sync code.
 Under the hood, it will still run asynchronously, if you choose so.
 Balrog aims to support both sync and async I/O equally well.
 
+The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with @zzzeek the use of
+greenlets in sqlalchemy. I actually was defending the position that greenlets are harmful, and can only be used
+as a temporary means that could ease porting from sync to async I/O. Then I changed my mind.
+
 **How is it possible?**
 
 Balrog uses the **greenlet** hack, which is best known from its use in sqlalchemy. It removes the need for functions to have the
