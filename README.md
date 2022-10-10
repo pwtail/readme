@@ -1,4 +1,4 @@
-# RFC: balrog project
+# balrog project
 
 *Ancient demons fighting by your side.*
 
