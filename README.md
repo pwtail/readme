@@ -61,7 +61,7 @@ without them even knowing the I/O is async.
 
 The idea was born out of my [discussion](https://github.com/balrogproject/rfc/issues/3) with
 @zzzeek about whether the use of
-greenlets is justified.
+greenlets was justified.
 
 **The name**
 
