@@ -18,8 +18,7 @@ Those who haven't seen the trick - take a look at the [shadow](https://github.co
 
 **Intended for web applications**
 
-The issue is, the approach requires an ecosystem of libraries written or adapted specifically for it.
-So, the web applications fit well, since they have a predictable and limited scope.
+Primarily. Since they have predictable needs and a limited scope.
 **django** will definitely be supported.
 
 **An example**
