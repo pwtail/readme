@@ -60,14 +60,8 @@ without them even knowing the I/O is async.
 **Some background**
 
 The idea was born out of my [discussion](https://github.com/balrogproject/rfc/issues/3) with
-@zzzeek about the use of
-greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
-
-@zzzeek said the greenlet trick should only be used by libraries, and that
-the application code should obviously use async/await everywhere.
-
-Then I thought things actually can be the other way around: libraries to have async implementations, and the application code
-to be written in sync style. So this project was born.
+@zzzeek about whether the use of
+greenlets is justified.
 
 **The name**
 
