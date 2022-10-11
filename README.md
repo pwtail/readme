@@ -80,8 +80,8 @@ To work around that, people usually use
 To my surprise, the greenlet approach works in the REPL **out of the box**. Even in the regular Python REPL, pdb!
 `nest_asyncio` is not required.
 
-Some integration with IPython will still be needed, in the case when it's just code you type in the REPL
-(which has to be wrapped in a greenlet). The case that works out of the box, that I was talking about, was debugging existing code.
+Some integration with IPython will still be needed, when it's just code you type in the REPL, not the one being run
+by the event loop.
 
 **The plans**
 
