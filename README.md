@@ -63,10 +63,10 @@ The idea was born out of my [discussion](https://github.com/balrogproject/rfc/is
 @zzzeek about the use of
 greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
 
-@zzzeek said the trick is permissible for libraries, since they have to support both sync and async I/O. And that
+@zzzeek said the greenlet trick should only be used by libraries, and that
 the application code should obviously use async/await everywhere.
 
-Then I thought things can be the other way around: libraries to have async implementations, and the application code
+Then I thought things actually can be the other way around: libraries to have async implementations, and the application code
 to be written in sync style. So this project was born.
 
 **The name**
