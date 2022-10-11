@@ -55,14 +55,14 @@ we have all of the following provided:
 Now, what I'm trying to say is, all of the above can be hidden under the hood, as an implementation detail, the public API
 likely being shared with their sync counterparts. The code snippet above likely won't change at all.
 
-**Motivation**
+**Some background**
 
 The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with
-[@zzzeek](https://github.com/zzzeek) about the use of
+@zzzeek about the use of
 greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
 
 @zzzeek said the trick is permissible for libraries, since they have to support both sync and async I/O. And that
-the application code should use async/await of course.
+the application code should obviously use async/await everywhere.
 
 Then I thought it can be the other way around: libraries to have async implementations, and all the application code
 to be written in sync style. So this project was born.
