@@ -23,6 +23,10 @@ Primarily. Since they have predictable needs and a limited scope.
 
 **An example**
 
+Balrog allows you to write async code that looks synchronous.
+Not only does it look that way, you also can use sync libraries like django/drf
+without them knowing much about that. Here is an example of such use.
+
 ```python
 import requests
 from delivery.models import Order
@@ -40,19 +44,17 @@ def food_delivery(request):
             kitchen_error(resp)
 ```
 
-Here you can see a regular synchronous django view. Except that `ws.send` cannot really be a synchronous call,
-if it is a server-sent message. However, we can imagine we have a separate service for sending messages, and
-`ws.send` delegates to it. So, a perfectly valid django view.
+This is a regular sync django view. Except that `ws.send` cannot really be a synchronous call,
+as it is a server-sent message. But, we can imagine we have a separate sender service, so `ws.send` delegates to it.
 
-Now, we'll try to apply the above-stated approach for it. No real code at this stage yet, but we can imagine
-we have all of the following provided:
+In ordert to make this view use async, we need:
 
 - async database backend for django
-- async implementation of the http client
-- websocket server - this thing is always asynchronous
+- async implementation of the http client (check)
+- websocket server - this thing is always asynchronous (check)
 
-Now, what I'm trying to say is, all of the above can be hidden under the hood, as an implementation detail, the public API
-likely being shared with their sync counterparts. The code snippet above likely won't change at all.
+However, when we provide the above requirements, the code will look the same, or very similar.
+Also, it can be integrated with higher-level frameworks like drf without them knowing the I/O is async.
 
 **Some background**
 
@@ -63,7 +65,7 @@ greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
 @zzzeek said the trick is permissible for libraries, since they have to support both sync and async I/O. And that
 the application code should obviously use async/await everywhere.
 
-Then I thought it actually can be the other way around: libraries to have async implementations, and the application code
+Then I thought things can be the other way around: libraries to have async implementations, and the application code
 to be written in sync style. So this project was born.
 
 **The name**
