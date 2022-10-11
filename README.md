@@ -12,10 +12,9 @@ Balrog aims to support both sync and async I/O equally well.
 **How is it possible?**
 
 Balrog uses the **greenlet** hack, which is best known from its use in sqlalchemy. It removes the need for functions to have the
-async/await keywords despite them having an async implementation. Balrog uses that trick all the way down.
+async/await keywords despite them having an async implementation.
 
-Here I've put up a small package [greenbrew](https://github.com/balrogproject/greenbrew) for those who haven't seen
-the trick.
+Those who haven't seen the trick - take a look at the [shadow](https://github.com/balrogproject/shadow) package.
 
 **Intended for web applications**
 
@@ -58,9 +57,15 @@ likely being shared with their sync counterparts. The code snippet above likely 
 
 **Motivation**
 
-The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with @zzzeek about the use of
-greenlets in sqlalchemy. I actually was defending the idea that greenlets are harmful, and can only be used
-as a temporary solution on the way of porting from sync to async API. Then I changed my mind.
+The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with
+[@zzzeek](https://github.com/zzzeek) about the use of
+greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
+
+@zzzeek said the trick is permissible for libraries, since they have to support both sync and async I/O. And that
+the application code should use async/await of course.
+
+Then I thought it can be the other way around: libraries to have async implementations, and all the application code
+to be written in sync style. So this project was born.
 
 **The name**
 
