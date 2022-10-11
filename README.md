@@ -54,7 +54,7 @@ In ordert to make this view use async, we need:
 - websocket server - this thing is always asynchronous (check)
 
 With barlog, when we provide the above requirements, the code will look the same, or very similar.
-Also, it will be able to integrate with higher-level frameworks like drf
+Also, it will be able to integrate with higher-level frameworks like drf,
 without them even knowing the I/O is async.
 
 **Some background**
