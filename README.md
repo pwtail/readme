@@ -25,7 +25,7 @@ Primarily. Since they have predictable needs and a limited scope.
 
 Balrog allows you to write async code that looks synchronous.
 Not only does it look that way, you also can use sync libraries like django/drf
-without them knowing much about that. Here is an example of such use.
+without them knowing much about that. Here is an example of such use:
 
 ```python
 import requests
