@@ -64,7 +64,7 @@ greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
 @zzzeek said the trick is permissible for libraries, since they have to support both sync and async I/O. And that
 the application code should obviously use async/await everywhere.
 
-Then I thought it can be the other way around: libraries to have async implementations, and all the application code
+Then I thought it can actually be the other way around: libraries to have async implementations, and the application code
 to be written in sync style. So this project was born.
 
 **The name**
