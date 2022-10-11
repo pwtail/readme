@@ -57,7 +57,7 @@ likely being shared with their sync counterparts. The code snippet above likely 
 
 **Some background**
 
-The idea was born during my [discussion](https://github.com/balrogproject/rfc/issues/3) with
+The idea was born out of my [discussion](https://github.com/balrogproject/rfc/issues/3) with
 @zzzeek about the use of
 greenlets in sqlalchemy. I was defending the idea that greenlets were harmful.
 
