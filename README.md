@@ -77,7 +77,7 @@ when debugging an async service and want to call an async function.
 To work around that, people usually use
 [nest_asyncio](https://github.com/erdewit/nest_asyncio), which patches asyncio.
 
-To my surprise, the greenlet approach works in the REPL **out of the box**. Even in the regular Python REPL, pdb!
+To my surprise, the greenlet approach works in the REPL **out of the box**. Even in the regular Python REPL, even in pdb!
 `nest_asyncio` is not required.
 
 Some integration with IPython will still be needed, when it's just code you type in the REPL, not the one being run
