@@ -79,7 +79,7 @@ Some people know that advanced Python REPLs like IPython allow expressions like 
 
 However, it is limited. Nested
 event loops are not allowed, and unfortunately that is exactly what you need
-when you are debugging an async service and want to call an async function.
+when debugging an async service and want to call an async function.
 To work around that, people usually use
 [nest_asyncio](https://github.com/erdewit/nest_asyncio), which patches asyncio.
 
