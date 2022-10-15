@@ -6,7 +6,7 @@
 > 
 > That is the way all Bi-Coloured-Python-Rock-Snakes always talk.
 > 
-> (The Elephant's Child, by Rudyard Kipling)
+> "The Elephant's Child", by Rudyard Kipling
 
 **No async/await**
 
