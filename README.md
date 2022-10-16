@@ -6,7 +6,7 @@
 
 "The Elephant's Child", by Rudyard Kipling
 
-**No async/await**
+**Bi-coloured Python**
 
 The balrog project takes an unconventional approach: **async/await keywords are discouraged!**
 You write the async code in the same way you would write the sync code.
