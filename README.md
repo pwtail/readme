@@ -8,22 +8,17 @@
 
 **Bi-coloured Python**
 
-The balrog project takes an unconventional approach: **async/await keywords are discouraged!**
-You write the async code in the same way you would write the sync code.
-Under the hood, it will still run asynchronously, if you choose so.
-Balrog aims to support both sync and async I/O equally well.
+In "What color is your function" <author> is dividing programming languages into the ones that do ... async functions into a separate
+    category (or type if you like), and the ones that do not. Python, for example, fell in the first category, go - in the second.
 
-**How is it possible?**
+if your function uses async I/O, you have to mark it with async.
 
-Balrog uses the **greenlet** hack, which is best known from its use in sqlalchemy. It removes the need for functions to have the
-async/await keywords despite them having an async implementation.
+problems arise not only what to deal with "legacy" codebases like django or sqlalchemy,
+but also, what if a library wants to support both sync and async I/O?
 
-Those who haven't seen the trick - take a look at the [shadow](https://github.com/balrogproject/shadow) package.
+I want to propose an alternative sol-n, that almost doesn't have drawbacks, except that it doesn't work for all
+usecases. I will ... below.
 
-**Intended for web applications**
-
-Primarily. Since they have predictable needs and a limited scope.
-**django** will definitely be supported.
 
 **An example**
 
