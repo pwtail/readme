@@ -1,14 +1,14 @@
 ## Doing async I/O in Python without async-await
 
-**Bi-coloured Python**
-
 > Then the Bi-Coloured-Python-Rock-Snake came down from the bank, and knotted himself in a double-clove-hitch round the Elephant’s Child’s hind legs, and said, ‘Rash and inexperienced traveller, we will now seriously devote ourselves to a little high tension, because if we do not, it is my impression that yonder self-propelling man-of-war with the armour-plated upper deck’ (and by this, O Best Beloved, he meant the Crocodile), ‘will permanently vitiate your future career.
 > 
 > That is the way all Bi-Coloured-Python-Rock-Snakes always talk.
 
 "The Elephant's Child", by Rudyard Kipling
 
-There is a pretty known writing by "Bob Nystrom" named
+**Bi-coloured Python**
+
+There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
 In it, the author reflects on the different approaches to the async programming that programming languages use.
 The majority of languages, including Python, use function coloring to do the async programming.
