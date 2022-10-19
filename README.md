@@ -41,27 +41,38 @@ And since this case is very common for web development, I think the web
 development is better off without async/await (mostly).
 
 Technically it is done using the [greenlet hack](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
-It allows you to have regular functions everywhere, and somehere in the middle to have an async implementation (defined by
-an async function). The greenlet hack has been used in sqlalchemy for it's async functionality for a couple of years by now.
+It actually allows the async functions to be called within regular ones.
+The greenlet hack has been used in sqlalchemy for it's async functionality for a couple of years by now,
+so is kind of battle-tested.
 
-**The benefits**
-
-problems arise not only what to deal with "legacy" codebases like django or sqlalchemy,
-but also, what if a library wants to support both sync and async I/O?
-
-I want to propose an alternative sol-n, that almost doesn't have drawbacks, except that it doesn't work for all
-usecases.
-
-to propose sticking with the go-like approach, not to use async/await.
-
-**The drawbacks**
-
-Material side
+The problems with async-await arise when you have to deal with "legacy" codebases like django or sqlalchemy.
+It wasn't a coincidence sqlalchemy was the one to adopt the greenlet trick.
+Also there is no simple way for a library to support both sync and async I/O.
 
 **An example**
 
+```python
+import requests
+from delivery.models import Order
+
+def food_delivery(request):
+    order: Order = prepare_order(request)
+    order.save()
+    resp = requests.post('https://kitchen-place.org/orders/', data=order.as_dict())
+    match resp.status_code, resp.json():
+        case 201, {"mins": mins} as when:
+            ws = get_ws_connection(request)
+            ws.send(f'Order #{order.id} will be delivered in {mins} minutes.')
+            return JsonResponse(when)
+        case _:
+            kitchen_error(resp)
+```
+
+An example is worth a thousand words. Here you see a regular sync django view.
+Except that `ws.send` cannot really be a synchronous call,
+as it is a server-sent message. But, we can imagine we have a separate sender service, so `ws.send` delegates to it.
+
+
 **The plans**
 
-The blocker now is the absence of any async database backends in django. But that is not much work to add one.
-The first database driver supported will be [psycopg](https://github.com/psycopg/psycopg).
-The sync backend for that driver is [almost](https://github.com/django/django/pull/15687) merged.
+TODO
