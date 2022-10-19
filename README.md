@@ -26,8 +26,8 @@ Threads do not depend on each other: although being run concurrently, they don't
 So the code defining thread's logic can be written as if other threads not existed.
  We don't need concurrency within a thread: all operations happen one after another.
 
- In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine)
- - if we can presume the top-level goroutines are somehow started for us.
+ In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - if
+ we can presume the top-level goroutines are somehow started for us.
 
  A real-life example can be handling web requests. Often  in web programming we just want to use the async I/O instead of the blocking
  one, because it is more performant for the needs of web services. We don't usually need any concurrency in our handling
