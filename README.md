@@ -15,13 +15,13 @@ The majority of languages, including Python, use function coloring to do the asy
 That means, you have to mark your async functions with a keyword and use another keyword for calling them (await).
 Golang does not use function coloring, as a vivid counter-example.
 
-**When concurrency is not actually needed**
-
 The above-mentioned article was just for a preface.
 I won't discuss the ways of implementing concurrency, because I'm not too much of an expert.
 However, there is one special usecase, that I want to highlight.
 
-It's when an application has clear isolated logical threads of execution.
+**When concurrency is not actually needed**
+
+Imagine an application that has clear isolated logical threads of execution.
 Threads do not depend on each other: although being run concurrently, they don't exchange any data.
 So the code defining thread's logic can be written as if other threads not existed.
  We don't need concurrency within a thread: all operations happen one after another.
