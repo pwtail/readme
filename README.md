@@ -87,7 +87,9 @@ django-rest-framework or swagger tools without modifications.
 
 **Prior art**
 
-*Gevent/eventlet* are best known predecessors. They kind of do the same thing: make your synchronous code use the async I/O under the hood. The implementation is very differrent however: they do the patching of the standard library, after which your *existing* code magically becomes async. A careful reader could have noticed that we don't do the same thing: we don't make your existing code async, you have to change it, provide an async implementations for it. In the example above we required an async database backend, for example. Also, we have made myhttpx wrapper over httpx. So, the proposed approach is kind of a less insane variation of gevent.
+*Gevent/eventlet* are best known predecessors. They kind of do the same thing: make your synchronous code use the async I/O under the hood. The implementation is very differrent however: they do the patching of the standard library, after which your *existing* code magically becomes async.
+
+A careful reader could have noticed that we don't do the same: we don't make your existing code async, you have to change it, provide an async implementations for it. In the example above we required an async database backend, for example. Also, we have made myhttpx wrapper over httpx. So, the proposed approach is kind of a less insane variation of gevent.
 
 *Sqlalchemy* also makes use of the same greenlet hack. The very idea of all this was born during a [conversation](https://github.com/Bi-Coloured-Python-Rock-Snake/readme/issues/3) with zzzeek, the author of sqlalchemy (I was strongly opposed to the use of greenlets at the moment). However, sqlalchemy
 only uses that trick *internally* as a means to provide the async API more easily and from the same codebase. The async API produced doesn't require any additional actions to consume it, and is the same as any other async API for that matter. Things are different with our approach: it is a responsibility of a developer to enable it - for example, by wrapping some top-level function. In other words, we are a framework, not a library.
