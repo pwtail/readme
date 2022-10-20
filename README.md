@@ -9,7 +9,7 @@ The quotations are from "The Elephant's Child" by Rudyard Kipling.
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
 
-In it, the author reflects on the different approaches to the async programming that programming languages have.
+In it, the author reflects on the different approaches to async programming that programming languages have.
 The majority of languages, including Python, use "functions of different colors".
 That means, one color for regular functions and another for async ones. In Python that is done with async and await keywords.
 Golang does not use function coloring, as a vivid counter-example.
@@ -20,27 +20,28 @@ However, there is one special usecase, that I want to discuss.
 
 **When concurrency is not actually needed**
 
-Imagine an application that has clear isolated logical threads of execution.
+Imagine an application that can be split into clear isolated logical threads of execution.
+Handling web requests is a good example.
+
 Threads do not depend on each other: although being run concurrently, they don't exchange any data.
-So the code defining thread's logic can be written as if other threads not existed.
- We don't need concurrency within a thread: all operations happen one after another.
+The code defining thread's logic can be written as if other threads not existed.
+ We don't need concurrency within a thread: all operations can happen sequentially,
+ one after another.
 
  In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - if
  we can presume the top-level goroutines are somehow started for us.
 
- A real-life example can be handling web requests. Often  in web programming we just want to use the async I/O instead of the blocking
- one, because it is more performant for the needs of web services. We don't usually need any concurrency in our handling
- of a web request.
+Speaking of the web programming, it is often just the case: we use the async I/O instead of the blocking
+ one, because our services are more performant that way. We don't usually use concurrent tasks to handle a web request.
 
  **An alternative approach: no async/await**
 
-The same way that you don't need the `go` statement, you also can do without async/await in the afore-mentioned case.
-And I want to show it is also a practical choice to do so, that almost doesn't have any drawbacks.
-And since this case is very common for web development, I think the web
-development is better off without async/await (mostly).
+In the same way as you don't need the `go` statement, you also can do without async/await in the afore-mentioned case.
+And I will show it is also a practical choice to do so, that almost doesn't have any drawbacks.
+Since this case is common, at least for the web development, it can be widely aplicable.
 
 Technically it is done using the [greenlet hack](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
-It actually allows the async functions to be called within regular ones.
+It actually allows the async functions to be called from within the regular ones.
 The greenlet hack has been used in sqlalchemy to enable the use of async database drivers.
 
 The no-async-await approach lets you avoid many troubles of async programming in Python:
