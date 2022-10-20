@@ -1,6 +1,6 @@
 ## Doing async I/O in Python without async-await
 
-The quotations are from Rudyard Kipling's tale "The Elephant's Child".
+The quotations are from "The Elephant's Child" by Rudyard Kipling.
 
 **Bi-coloured Python**
 
