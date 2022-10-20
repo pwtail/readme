@@ -1,11 +1,10 @@
 ## Doing async I/O in Python without async-await
 
-> ‘Well,’ said the Bi-Coloured-Python-Rock-Snake, ‘you will find that new nose of yours very useful to spank people with.’
-> ‘Thank you,’ said the Elephant’s Child, ‘I’ll remember that; and now I think I’ll go home to all my dear families and try.’
-
-"The Elephant's Child" by Rudyard Kipling
+The quotations are from Rudyard Kipling's tale "The Elephant's Child".
 
 **Bi-coloured Python**
+
+>The first thing that he found was a Bi-Coloured-Python-Rock-Snake curled round a rock.
 
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
@@ -101,3 +100,6 @@ The code gets split between the sync and the async greenlet, the stack of frames
 On the bright side, the async code does work in the REPL! With asyncio it is not so, since nested event loops are forbidden, so you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
 
 Again, in relation with debugging/profiling issues: there is nothing that cannot be implemented. The overall approach is simple, simpler than the one asyncio has. Because asyncio provides real concurrency, whereas for us sequential execution of tasks is enough (within a given logical thread).
+
+> ‘Well,’ said the Bi-Coloured-Python-Rock-Snake, ‘you will find that new nose of yours very useful to spank people with.’
+> ‘Thank you,’ said the Elephant’s Child, ‘I’ll remember that; and now I think I’ll go home to all my dear families and try.’
