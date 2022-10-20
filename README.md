@@ -8,7 +8,7 @@ There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
 
 In it, the author reflects on the existing approaches to async programming.
-The majority of programming languages, including Python, use functions "of different colors".
+He says, the majority of programming languages, including Python, use functions "of different colors".
 That means, one color for regular functions and another for async ones. In Python, that is done using async and await keywords.
 Golang does not have function colors, as a vivid counter-example.
 
