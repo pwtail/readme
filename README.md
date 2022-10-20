@@ -1,10 +1,8 @@
-## Doing async I/O in Python without async-await
-
-The quotations are from "The Elephant's Child" by Rudyard Kipling.
-
-**Bi-coloured Python**
+## Easy async I/O in Python without async-await
 
 >The first thing that he found was a Bi-Coloured-Python-Rock-Snake curled round a rock.
+
+(all quotations are from "The Elephant's Child" by Rudyard Kipling)
 
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
@@ -33,19 +31,18 @@ The code defining thread's logic can be written as if other threads not existed.
 Speaking of the web programming, it is often just the case: we use the async I/O instead of the blocking
  one, because our services are more performant that way. We don't usually use concurrent tasks to handle a web request.
 
- **An alternative approach: no async/await**
+ **The alternative: no async/await**
 
 In the same way as you don't need the `go` statement, you also can do without async/await in the afore-mentioned case.
-And I will show it is also a practical choice to do so, that almost doesn't have any drawbacks.
-Since this case is common, at least for the web development, it can be widely aplicable.
+And I will show later it is also a practical choice to do so, that almost doesn't have any drawbacks.
 
 Technically it is done using the [greenlet hack](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
-It actually allows the async functions to be called from within the regular ones.
+It actually allows for the async functions to be called from within regular ones.
 The greenlet hack has been used in sqlalchemy to enable the use of async database drivers.
 
-The no-async-await approach lets you avoid many troubles of async programming in Python:
+Not using async/await has a number of benefits:
 
-- It enables the use of "legacy" codebases like django. It wasn't a coincidence sqlalchemy was the first to adopt the greenlet trick. Speaking of django, it is a just a matter of switching the database backend to an async one (and then specifying the new backend in settings.py).
+- It enables the use of "legacy" codebases like django. It wasn't a coincidence sqlalchemy was the first to adopt the greenlet trick. Speaking of django, it is a just a matter of switching the database backend to an async one, and then specifying the new backend in settings.py.
 
 - It gives you the possibility to easily support both sync and async I/O. However,
   since you write code in synchronous style in both cases, there are not so many reasons to use blocking I/O for server-side programming.
@@ -85,7 +82,15 @@ Things that were required for the rewrite:
 In case you haven't figured it out, the approach lets you use higher-level libraries like
 django-rest-framework or swagger tools without modifications.
 
->‘’Vantage number two!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mear-smear nose
+>‘Vantage number two!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mear-smear nose
+
+
+**Prior art**
+
+*Gevent/eventlet* are best known candidates. They kind of do the same thing: make your synchronous code use the async I/O under the hood. The implementation is very differrent however: they do the patching of the standard library, after which your *existing* code magically becomes async. A careful reader could have noticed that we don't do the same thing: we don't make your existing code async, you have to change it, provide an async implementations for it. In the example above we required an async database backend, for example. Also, we have made myhttpx wrapper over httpx. So, the proposed approach is kind of a less insane variation of gevent.
+
+*Sqlalchemy* also makes use of the same greenlet hack. The very idea of all this was born during a [conversation](https://github.com/Bi-Coloured-Python-Rock-Snake/readme/issues/3) with zzzeek, the author of sqlalchemy (I was strongly opposed to the use of greenlets at the moment). However, sqlalchemy
+only uses that trick *internally* as a means to provide the async API more easily and from the same codebase. The async API produced doesn't require any additional actions to consume it, and is the same as any other async API for that matter. Things are different with our approach: it is a responsibility of a developer to enable it - for example, by wrapping some top-level function. In other words, we are a framework, not a library.
 
 **Is it production-ready?**
 
@@ -93,14 +98,14 @@ The greenlet hack has been used in sqlalchemy for a couple of years by now, so i
 
 The rest of the needs of the web development can be satisfied even more easily, as you have seen from the example above.
 
-**Present issues**
+**Issues/cons**
 
-You can have some issues related to debugging and profiling, more with the latter than the former.
-The code gets split between the sync and the async greenlet, so the stack of frames in those too being not connected to each other. You can always print the correct stack of frames yourself however. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
+The greenlet hack, used under the hood, can lead to certain issues related to the debugging and profiling.
+Since the code gets split between the sync and the async greenlet, the stack of frames is also split. You can always print the correct stack of frames yourself however. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
 
-On the bright side, the async code does work in the REPL! With asyncio it is not so, since nested event loops are forbidden, so you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
+On the bright side, the async code does work inside the REPL! With asyncio, it is not so: since nested event loops are forbidden, you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
 
-Again, in relation with debugging/profiling issues: there is nothing that cannot be implemented. The overall approach is simple, simpler than the one asyncio has. Because asyncio provides real concurrency, whereas for us sequential execution of tasks is enough (within a given logical thread).
+Again, in relation with debugging/profiling issues: there is nothing that cannot be implemented. The overall approach is simple. It is actually simpler than the one in asyncio, because asyncio provides real concurrency, whereas we are happy with the sequential execution.
 
 > ‘Well,’ said the Bi-Coloured-Python-Rock-Snake, ‘you will find that new nose of yours very useful to spank people with.’
 >
