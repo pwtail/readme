@@ -2,10 +2,10 @@
 
 >The first thing that he found was a Bi-Coloured-Python-Rock-Snake curled round a rock.
 
-(all quotations are from "The Elephant's Child" by Rudyard Kipling)
+This quote, as well as all others, is from "The Elephant's Child" by Rudyard Kipling.
 
 There is a pretty known writing by Bob Nystrom named
-["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
+["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
 
 In it, the author reflects on the different approaches to async programming that programming languages have.
 The majority of languages, including Python, use "functions of different colors".
