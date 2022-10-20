@@ -12,7 +12,7 @@ He says, the majority of programming languages, including Python, use functions 
 That means, one color for regular functions and another for async ones. In Python, that is done using async and await keywords.
 Golang does not have function colors, as a vivid counter-example.
 
-That is said just for a preface actually.
+That is said just for a preface, actually.
 I won't discuss the ways of implementing concurrency, because I'm not too much of an expert.
 However, there is one special usecase I want to discuss.
 
