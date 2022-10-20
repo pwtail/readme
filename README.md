@@ -7,10 +7,10 @@ This quote, as well as all others, is from "The Elephant's Child" by Rudyard Kip
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
 
-In it, the author reflects on the different approaches to async programming that programming languages have.
-The majority of languages, including Python, use "functions of different colors".
-That means, one color for regular functions and another for async ones. In Python that is done with async and await keywords.
-Golang does not use function coloring, as a vivid counter-example.
+In it, the author reflects on the approaches to async programming  different programming languages use.
+The majority of languages, including Python, use functions "of different colors".
+That means, one color for regular functions and another for async ones. In Python that is done using async and await keywords.
+Golang does not have function colors, as a vivid counter-example.
 
 That is said just for a preface actually.
 I won't discuss the ways of implementing concurrency, because I'm not too much of an expert.
