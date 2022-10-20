@@ -29,16 +29,16 @@ one after another.
 In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - as long as we can presume the top-level goroutines are somehow started for us.
 
 Speaking of the web programming, it is often just the case: we use the async I/O instead of the blocking
- one, because our services are more performant that way. We don't usually use concurrent tasks to handle a web request.
+ one, because our services are more performant that way. We don't usually need concurrent tasks to handle a web request.
 
  **The alternative: no async/await**
 
 In the same way as you don't need the `go` statement, you also can do without async/await in the afore-mentioned case.
-And I will show later it is also a practical choice to do so, that almost doesn't have any drawbacks.
+And I will show it is also a practical choice to do so, that almost doesn't have any drawbacks.
 
 Technically it is done using the [greenlet hack](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
-It actually allows for the async functions to be called from within regular ones.
-The greenlet hack has been used in sqlalchemy to enable the use of async database drivers.
+It actually allows the async functions being called from within regular ones.
+The greenlet is used in sqlalchemy to enable the async database drivers.
 
 Not using async/await has a number of benefits:
 
