@@ -75,7 +75,7 @@ I have [rewriten](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blo
 
 Things that were required for the rewrite:
 
-- Async database backend for django (actually, that is a repository for the backend, the project being an example of its use)
+- Async database backend for django (actually, that repository is for the backend, the project being an example of its use)
 - A http client ([myhttpx](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/myhttpx.py), a thin wrapper over httpx)
 - [channels](https://channels.readthedocs.io/en/stable/) for the websocket functionality (because it hasn't been included in django for unknown reasons)
 
