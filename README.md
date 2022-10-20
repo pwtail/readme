@@ -53,8 +53,6 @@ The no-async-await approach lets you avoid many troubles of async programming in
 
 **An example**
 
->Vantage number one!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mere-smear nose'
-
 ```python
 import requests
 from delivery.models import Order
@@ -77,10 +75,12 @@ as it is a server-sent message. But, we can imagine we have a separate sender se
 
 I have [rewriten](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/kitchen/views.py) it into an async one. If you follow the link you will see the code very similar to the code snippet above. Because you write the code in the same way regardless of whether you use the blocking or async I/O.
 
+>Vantage number one!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mere-smear nose'
+
 Things that were required for the rewrite:
 
 - Async database backend for django (actually, that is a repository for the backend, the project being an example of its use)
-- An http client ([myhttpx](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/myhttpx.py), a thin wrapper over httpx)
+- A http client ([myhttpx](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/myhttpx.py), a thin wrapper over httpx)
 - [channels](https://channels.readthedocs.io/en/stable/) for the websocket functionality (because it hasn't been included in django for unknown reasons)
 
 In case you haven't figured it out, the approach lets you use higher-level libraries like
@@ -97,11 +97,12 @@ The rest of the needs of the web development can be satisfied even more easily, 
 **Present issues**
 
 You can have some issues related to debugging and profiling, more with the latter than the former.
-The code gets split between the sync and the async greenlet, the stack of frames in those too being not connected to each other. You can always print the correct stack of frames yourself however. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
+The code gets split between the sync and the async greenlet, so the stack of frames in those too being not connected to each other. You can always print the correct stack of frames yourself however. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
 
 On the bright side, the async code does work in the REPL! With asyncio it is not so, since nested event loops are forbidden, so you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
 
 Again, in relation with debugging/profiling issues: there is nothing that cannot be implemented. The overall approach is simple, simpler than the one asyncio has. Because asyncio provides real concurrency, whereas for us sequential execution of tasks is enough (within a given logical thread).
 
 > ‘Well,’ said the Bi-Coloured-Python-Rock-Snake, ‘you will find that new nose of yours very useful to spank people with.’
+>
 > ‘Thank you,’ said the Elephant’s Child, ‘I’ll remember that; and now I think I’ll go home to all my dear families and try.’
