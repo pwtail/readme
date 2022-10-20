@@ -28,8 +28,7 @@ The code defining thread's logic can be written as if other threads not existed.
  We don't need concurrency within a thread: all operations can happen sequentially,
  one after another.
 
- In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - if
- we can presume the top-level goroutines are somehow started for us.
+ In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - as long as we can presume the top-level goroutines are somehow started for us.
 
 Speaking of the web programming, it is often just the case: we use the async I/O instead of the blocking
  one, because our services are more performant that way. We don't usually use concurrent tasks to handle a web request.
