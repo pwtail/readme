@@ -8,14 +8,15 @@ The quotations are from "The Elephant's Child" by Rudyard Kipling.
 
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/).
-In it, the author reflects on the different approaches to the async programming that programming languages use.
-The majority of languages, including Python, use function coloring to do the async programming.
-That means, you have to mark your async functions with a keyword and use another keyword for calling them (await).
+
+In it, the author reflects on the different approaches to the async programming that programming languages have.
+The majority of languages, including Python, use "functions of different colors".
+That means, one color for regular functions and another for async ones. In Python that is done with async and await keywords.
 Golang does not use function coloring, as a vivid counter-example.
 
-This is actually just for a preface.
+That is said just for a preface actually.
 I won't discuss the ways of implementing concurrency, because I'm not too much of an expert.
-However, there is one special usecase, that I want to highlight.
+However, there is one special usecase, that I want to discuss.
 
 **When concurrency is not actually needed**
 
