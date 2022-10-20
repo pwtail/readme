@@ -1,10 +1,9 @@
 ## Doing async I/O in Python without async-await
 
-> Then the Bi-Coloured-Python-Rock-Snake came down from the bank, and knotted himself in a double-clove-hitch round the Elephant’s Child’s hind legs, and said, ‘Rash and inexperienced traveller, we will now seriously devote ourselves to a little high tension, because if we do not, it is my impression that yonder self-propelling man-of-war with the armour-plated upper deck’ (and by this, O Best Beloved, he meant the Crocodile), ‘will permanently vitiate your future career.
-> 
-> That is the way all Bi-Coloured-Python-Rock-Snakes always talk.
+> ‘Well,’ said the Bi-Coloured-Python-Rock-Snake, ‘you will find that new nose of yours very useful to spank people with.’
+> ‘Thank you,’ said the Elephant’s Child, ‘I’ll remember that; and now I think I’ll go home to all my dear families and try.’
 
-"The Elephant's Child", by Rudyard Kipling
+"The Elephant's Child" by Rudyard Kipling
 
 **Bi-coloured Python**
 
@@ -42,14 +41,18 @@ development is better off without async/await (mostly).
 
 Technically it is done using the [greenlet hack](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
 It actually allows the async functions to be called within regular ones.
-The greenlet hack has been used in sqlalchemy for it's async functionality for a couple of years by now,
-so is kind of battle-tested.
+The greenlet hack has been used in sqlalchemy to enable the use of async database drivers.
 
-The problems with async-await arise when you have to deal with "legacy" codebases like django or sqlalchemy.
-It wasn't a coincidence sqlalchemy was the one to adopt the greenlet trick.
-Also there is no simple way for a library to support both sync and async I/O.
+The no-async-await approach lets you avoid many troubles of async programming in Python:
+
+- It enables the use of "legacy" codebases like django. It wasn't a coincidence sqlalchemy was the first to adopt the greenlet trick. Speaking of django, it is a just a matter of switching the database backend to an async one (and then specifying the new backend in settings.py).
+
+- It gives you the possibility to easily support both sync and async I/O. However,
+  since you write code in synchronous style in both cases, there are not so many reasons to use blocking I/O for server-side programming.
 
 **An example**
+
+>Vantage number one!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mere-smear nose'
 
 ```python
 import requests
@@ -67,12 +70,34 @@ def food_delivery(request):
         case _:
             kitchen_error(resp)
 ```
-
-An example is worth a thousand words. Here you see a regular sync django view.
+Here you see a regular django view using blocking I/O.
 Except that `ws.send` cannot really be a synchronous call,
 as it is a server-sent message. But, we can imagine we have a separate sender service, so `ws.send` delegates to it.
 
+I have [rewriten](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/kitchen/views.py) it into an async one. If you follow the link you will see the code very similar to the code snippet above. Because you write the code in the same way regardless of whether you use the blocking or async I/O.
 
-**The plans**
+Things that were required for the rewrite:
 
-TODO
+- Async database backend for django (actually, that is a repository for the backend, the project being an example of its use)
+- An http client ([myhttpx](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/myhttpx.py), a thin wrapper over httpx)
+- [channels](https://channels.readthedocs.io/en/stable/) for the websocket functionality (because it hasn't been included in django for unknown reasons)
+
+In case you haven't figured it out, the approach lets you use higher-level libraries like
+django-rest-framework or swagger tools without modifications.
+
+>‘’Vantage number two!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mear-smear nose
+
+**Is it production-ready?**
+
+The greenlet hack has been used in sqlalchemy for a couple of years by now, so it is kind of battle-tested. The async backends for django are new so require to be tested. However, if we take the `psycopg` driver, it's async API is a mirror of the sync one, which is [almost merged](https://github.com/django/django/pull/15687). So creating the async backend for is not much work.
+
+The rest of the needs of the web development can be satisfied even more easily, as you have seen from the example above.
+
+**Present issues**
+
+You can have some issues related to debugging and profiling, more with the latter than the former.
+The code gets split between the sync and the async greenlet, the stack of frames in those too being not connected to each other. You can always print the correct stack of frames yourself however. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
+
+On the bright side, the async code does work in the REPL! With asyncio it is not so, since nested event loops are forbidden, so you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
+
+Again, in relation with debugging/profiling issues: there is nothing that cannot be implemented. The overall approach is simple, simpler than the one asyncio has. Because asyncio provides real concurrency, whereas for us sequential execution of tasks is enough (within a given logical thread).
