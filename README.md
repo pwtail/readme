@@ -90,7 +90,7 @@ django-rest-framework or swagger tools without modifications.
 
 **Is it production-ready?**
 
-The greenlet hack has been used in sqlalchemy for a couple of years by now, so it is kind of battle-tested. The async backends for django are new so require to be tested. However, if we take the `psycopg` driver, it's async API is a mirror of the sync one, which is [almost merged](https://github.com/django/django/pull/15687). So creating the async backend for is not much work.
+The greenlet hack has been used in sqlalchemy for a couple of years by now, so it is kind of battle-tested. The async backends for django are new so are required to be tested. However, if we take the `psycopg` driver, it's async API is a mirror of the sync one, which is [almost merged](https://github.com/django/django/pull/15687). So creating the async backend for is not much work.
 
 The rest of the needs of the web development can be satisfied even more easily, as you have seen from the example above.
 
