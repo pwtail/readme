@@ -2,17 +2,19 @@
 
 >The first thing that he found was a Bi-Coloured-Python-Rock-Snake curled round a rock.
 
-This quote, as well as all others, is from "The Elephant's Child" by Rudyard Kipling.
+This quote, as well as others, is from "The Elephant's Child" by Rudyard Kipling.
 
 There is a pretty known writing by Bob Nystrom named
-["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)? In it, the author reflects on the existing approaches to async programming.
+["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
+
+In it, the author reflects on the existing approaches to async programming.
 The majority of programming languages, including Python, use functions "of different colors".
 That means, one color for regular functions and another for async ones. In Python, that is done using async and await keywords.
 Golang does not have function colors, as a vivid counter-example.
 
 That is said just for a preface actually.
 I won't discuss the ways of implementing concurrency, because I'm not too much of an expert.
-However, there is one special usecase, that I want to discuss.
+However, there is one special usecase I want to discuss.
 
 **When concurrency is not actually needed**
 
@@ -20,11 +22,11 @@ Imagine an application that can be split into clear isolated logical threads of 
 Handling web requests is a good example.
 
 Threads do not depend on each other: although being run concurrently, they don't exchange any data.
-The code defining thread's logic can be written as if other threads not existed.
- We don't need concurrency within a thread: all operations can happen sequentially,
- one after another.
+The code defining thread's logic can be written as if all others not existed.
+We don't need concurrency within a thread: all operations can happen sequentially,
+one after another.
 
- In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - as long as we can presume the top-level goroutines are somehow started for us.
+In terms of goroutines, we can say that we don't actually need the `go` statement (the means to start a goroutine) - as long as we can presume the top-level goroutines are somehow started for us.
 
 Speaking of the web programming, it is often just the case: we use the async I/O instead of the blocking
  one, because our services are more performant that way. We don't usually use concurrent tasks to handle a web request.
