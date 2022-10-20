@@ -79,7 +79,7 @@ Things that were required for the rewrite:
 - A http client ([myhttpx](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/myhttpx.py), a thin wrapper over httpx)
 - [channels](https://channels.readthedocs.io/en/stable/) for the websocket functionality (because it hasn't been included in django for unknown reasons)
 
-In case you haven't figured it out, the approach lets you use higher-level libraries like
+In case you haven't figured it out, the approach also lets you use higher-level libraries like
 django-rest-framework or swagger tools without modifications.
 
 >‘Vantage number two!’ said the Bi-Coloured-Python-Rock-Snake. ‘You couldn’t have done that with a mear-smear nose
