@@ -1,9 +1,5 @@
 ## Async programming in the gevent style. An approach without async-await.
 
->The first thing that he found was a Bi-Coloured-Python-Rock-Snake curled round a rock.
-
-This quote, as well as others, is from "The Elephant's Child" by Rudyard Kipling.
-
 There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
 
@@ -89,3 +85,9 @@ In relation with debugging/profiling issues, there is nothing that cannot be imp
 
 
 **Plans**
+
+The project is set to be the home for async django. I encourage the django project to adopt the described approach as a default.
+
+There already is proof-of-concept [code](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/tree/main/pgbackend) for async database backend using the psycopg driver. The community can start addingsupport for other providers too.
+
+The next step should probably be extracting the tests for database backends out of the overall testsuite of the django project.
