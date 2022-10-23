@@ -4,7 +4,7 @@ There is a pretty known writing by Bob Nystrom named
 ["What color is you function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)?
 
 In it, the author discusses the existing approaches to async programming.
-The majority of programming languages, he says, including Python, use functions "of different colors": one color is used for "regular" functions and a special one - for async ones. If you have to use async and await keywords for async functions, you are using a special color.
+The majority of programming languages, including Python, he says, use functions "of different colors": one color is used for "regular" functions and a special one - for async ones. If you have to use async and await keywords for async functions, you are using a special color.
 Golang does not have function colors, as a vivid counter-example.
 
 Recently, taking a closer look at how sqlalchemy provides async I/O,
