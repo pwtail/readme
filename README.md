@@ -76,7 +76,12 @@ Hardly it can be viewed as a general-purpose approach to async programming. But 
 
 **Is it production-ready?**
 
-It has been tested in production primarily by sqlalchemy, and zzzeek [says](https://github.com/Bi-Coloured-Python-Rock-Snake/readme/issues/3#issuecomment-1273439668) it's production-ready.                                                                 
+It has been tested in production primarily by sqlalchemy, and zzzeek [says](https://github.com/Bi-Coloured-Python-Rock-Snake/readme/issues/3#issuecomment-1273439668) it's production-ready.
+
+**Does sqlalchemy use the same approach?**
+
+No it doesn't. sqlalchemy only uses the greenlet trick internally, while we open it to the developer.
+sqlalchemy provides an async API, while we provide a sync-looking API, that is using async I/O under he hood.
 
 **Issues/cons**
 
