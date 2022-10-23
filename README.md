@@ -37,7 +37,7 @@ def food_delivery(request):
             kitchen_error(resp)
 ```
 
-In the above django view, we save an order into the database, then make a request to a kitchen service, then notify the customers on when to expect the delivery.
+In the above django view, we save an order into the database, then make a request to a kitchen service, then notify the customer on when to expect the delivery.
 
 The vanilla django is used, however, with an async [backend](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/tree/main/pgbackend).
 myhttpx is a wrapper over httpx. Ws consumer needed [wrapping](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/kitchen/ws.py#L8) too, of course.
