@@ -64,3 +64,13 @@ greenhack.start_loop()
 After this your code is able to use async I/O. Here you can see that I've added this line to [manage.py](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/manage.py#L25) (django console utility) to make it work with an async backend.
 
 **Merits**
+
+Here I will try and share my own opinion on the possible value of the described approach.
+
+It is just an approach, it doesn't have any code. It relies on asyncio by default.
+
+It is indispensable for working with legacy codebases. I am sure this is the future of the django project, for example.
+
+The approach has a benefit in comparinson with async-native code: it can support both async and blocking code with one codebase.
+
+Hardly it can be viewed as a general-purpose approach to async programming, since it doesn't offer any means for concurrent tasks. But I'm sure it can have a wide range of uses.
