@@ -48,7 +48,7 @@ As you can see, we made django an async-capable framework. The higher-level libr
 
 The greenlet hack is the same that is used by sqlalchemy, and can be found [here](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
 
-The idea of it is splitting the code between two greenlets, a sync and an async one. All async operation are "filtered out" to the async greenlet, the remaining code being composed solely of "regular" functions.
+The idea of it is to split the code between two greenlets, a sync and an async one. All async operation are "filtered out" to the async greenlet, the remaining code being composed solely of "regular" functions.
 
 There are two ways of using [`greenhack`](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
 
