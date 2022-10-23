@@ -93,6 +93,6 @@ The project is set to be the home for async django.
 
 *I encourage the django project to adopt the described approach as a default.*
 
-There already is proof-of-concept [code](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/tree/main/pgbackend) for async database backend using the psycopg driver. The community can start addingsupport for other providers too.
+There already is proof-of-concept [code](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/tree/main/pgbackend) for async database backend using the psycopg driver. The community can start adding support for other providers too.
 
 The next step should probably be extracting the tests for database backends out of the overall testsuite of the django project.
