@@ -11,7 +11,7 @@ Golang does not have function colors, as a vivid counter-example.
 Recently, taking a closer look at how sqlalchemy provides async I/O,
 I have found a way to do the async programming not using function coloring.
 
-It is best suited for cases when you do not actually need concurrency, just the async I/O. When you have many logical threads, executing at the same time, but they are not dependent on each other. Within a particular thread operations execute sequentially, and concurrency is not needed. A web server is an example, handling of the web requests being those independent "threads". 
+It is best suited for cases when you do not actually need concurrency, just the async I/O. When you have many logical threads, executing at the same time, but they are not dependent on each other. Within a particular thread operations execute sequentially, so concurrency is not needed. A web server is a good example, handling of the web requests being those independent "threads". 
 
 **What does it look like**
 
