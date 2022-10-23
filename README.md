@@ -42,11 +42,11 @@ In the above django view, we save an order into the database, then make a reques
 The vanilla django is used, however, with an async [backend](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/tree/main/pgbackend).
 myhttpx is a wrapper over httpx. Ws consumer needed [wrapping](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/kitchen/ws.py#L8) too, of course.
 
-As you can see, django is suddenly an async-capable framework. So are all the higher-level libraries like django-rest-framework, for example.
+As you can see, we made django an async-capable framework. The higher-level libraries like django-rest-framework, for example, require even less effort (zero).
 
- **How it is done: the greenlet hack**
+**How it is done: the greenlet hack**
 
-The greenlet hack is the same that is used by sqlalchemy, can be found [here](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
+The greenlet hack is the same that is used by sqlalchemy, and can be found [here](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
 
 The idea of it is splitting the code between two greenlets, a sync and an async one. All async operation are "filtered out" to the async greenlet, the remaining code being composed solely of "regular" functions.
 
