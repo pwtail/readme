@@ -15,7 +15,7 @@ It is best suited for cases when you do not actually need concurrency, just the 
 
 **What does it look like**
 
-It look looks like a regular synchronous code, that's why I say it's programming in the gevent style. However, we don't do any monkeypatching, instead, your code should support the async I/O itself.  
+It looks like a regular synchronous code, that's why I say it's programming in the gevent style. However, we don't do any monkeypatching. Instead, our code should add support for the async I/O.  
 
 Here is an example, it is a working [code](https://github.com/Bi-Coloured-Python-Rock-Snake/pgbackend/blob/main/kitchen/views.py#L20),
 you can run it yourself.
