@@ -74,3 +74,18 @@ It is indispensable for working with legacy codebases. I am sure this is the fut
 The approach has a benefit in comparinson with async-native code: it can support both async and blocking code with one codebase.
 
 Hardly it can be viewed as a general-purpose approach to async programming, since it doesn't offer any means for concurrent tasks. But I'm sure it can have a wide range of uses.
+
+**Is it production-ready?**
+
+It has been tested in production primarily by sqlalchemy, and zzzeek [says](https://github.com/Bi-Coloured-Python-Rock-Snake/readme/issues/3#issuecomment-1273439668) it's production-ready.                                                                 
+**Issues/cons**
+
+Using the greenlet hack, one can face certain issues related to the debugging and profiling.
+Since the code gets split between the sync and the async greenlet, the stack of frames is also split. However, you can always print the correct stack of frames yourself. [zzzeek](https://github.com/zzzeek) says the profiling isn't easy too.
+
+On the bright side, the async code does work inside the REPL! With asyncio, it is not so: since nested event loops are forbidden, you have to use [nest_asyncio](https://github.com/erdewit/nest_asyncio) for debugging.
+
+In relation with debugging/profiling issues, there is nothing that cannot be implemented. The overall approach is simple, because we don't bother with concurrent tasks, and are happy with the sequential execution.
+
+
+**Plans**
