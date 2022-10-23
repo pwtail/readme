@@ -51,7 +51,7 @@ The idea of it is splitting the code between two greenlets, a sync and an async 
 
 There are two ways of using [`greenhack`](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
 
-In the first case there already is an event loop your application is run within. In this case you would usually decorate your top-level function with as_async.
+In the first case there already is an event loop your application is run within. In this case you would usually decorate your top-level function with @as_async.
 
 The second case is when you don't have an event loop and have to start one yourself. An example for this is Python REPL. Or some legacy console utility. In this case you should call
 
