@@ -81,7 +81,7 @@ It has been tested in production primarily by sqlalchemy, and zzzeek [says](http
 **Does sqlalchemy use the same approach?**
 
 No it doesn't. sqlalchemy only uses the greenlet trick internally, while we open it to the developer.
-sqlalchemy provides an async API, while we provide a sync-looking API, that is using async I/O under he hood.
+sqlalchemy provides an async API, while we provide a sync-looking API that uses async I/O under he hood.
 
 **Issues/cons**
 
