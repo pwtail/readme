@@ -49,7 +49,9 @@ The greenlet hack is the same that is used by sqlalchemy, can be found [here](ht
 
 The idea of it is splitting the code between two greenlets, a sync and an async one. All async operation are "filtered out" to the async greenlet, the remaining code being composed solely of "regular" functions.
 
-There are two ways of using [`greenhack`](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack). In the first case there already is an event loop your application is run within. In this case you would usually decorate your top-level function with as_async.
+There are two ways of using [`greenhack`](https://github.com/Bi-Coloured-Python-Rock-Snake/greenhack).
+
+In the first case there already is an event loop your application is run within. In this case you would usually decorate your top-level function with as_async.
 
 The second case is when you don't have an event loop and have to start one yourself. An example for this is Python REPL. Or some legacy console utility. In this case you should call
 
